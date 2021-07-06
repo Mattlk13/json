@@ -1,5 +1,60 @@
 # Changes
 
+## 2020-12-22 (2.5.1)
+
+* Restore the compatibility for constants of JSON class.
+
+## 2020-12-22 (2.5.0)
+
+* Ready to Ractor-safe at Ruby 3.0.
+
+## 2020-12-17 (2.4.1)
+
+* Restore version.rb with 2.4.1
+
+## 2020-12-15 (2.4.0)
+
+* Implement a freeze: parser option #447
+* Fix an issue with generate_pretty and empty objects in the Ruby and Java implementations #449
+* Fix JSON.load_file doc #448
+* Fix pure parser with unclosed arrays / objects #425
+* bundle the LICENSE file in the gem #444
+* Add an option to escape forward slash character #405
+* RDoc for JSON #439 #446 #442 #434 #433 #430
+
+## 2020-06-30 (2.3.1)
+
+* Spelling and grammar fixes for comments. Pull request #191 by Josh
+  Kline.
+* Enhance generic JSON and #generate docs. Pull request #347 by Victor
+  Shepelev.
+* Add :nodoc: for GeneratorMethods. Pull request #349 by Victor Shepelev.
+* Baseline changes to help (JRuby) development. Pull request #371 by Karol
+  Bucek.
+* Add metadata for rubygems.org. Pull request #379 by Alexandre ZANNI.
+* Remove invalid JSON.generate description from JSON module rdoc. Pull
+  request #384 by Jeremy Evans.
+* Test with TruffleRuby in CI. Pull request #402 by Benoit Daloze.
+* Rdoc enhancements. Pull request #413 by Burdette Lamar.
+* Fixtures/ are not being tested... Pull request #416 by Marc-André
+  Lafortune.
+* Use frozen string for hash key. Pull request #420 by Marc-André
+  Lafortune.
+* Added :call-seq: to RDoc for some methods. Pull request #422 by Burdette
+  Lamar.
+* Small typo fix. Pull request #423 by Marc-André Lafortune.
+
+## 2019-12-11 (2.3.0)
+ * Fix default of `create_additions` to always be `false` for `JSON(user_input)`
+   and `JSON.parse(user_input, nil)`.
+   Note that `JSON.load` remains with default `true` and is meant for internal
+   serialization of trusted data. [CVE-2020-10663]
+ * Fix passing args all #to_json in json/add/*.
+ * Fix encoding issues
+ * Fix issues of keyword vs positional parameter
+ * Fix JSON::Parser against bigdecimal updates
+ * Bug fixes to JRuby port
+
 ## 2019-02-21 (2.2.0)
  * Adds support for 2.6 BigDecimal and ruby standard library Set datetype.
 
@@ -28,7 +83,7 @@
 
 ## 2015-09-11 (2.0.0)
   * Now complies to newest JSON RFC 7159.
-  * Implements compatibiliy to ruby 2.4 integer unification.
+  * Implements compatibility to ruby 2.4 integer unification.
   * Drops support for old rubies whose life has ended, that is rubies < 2.0.
     Also see https://www.ruby-lang.org/en/news/2014/07/01/eol-for-1-8-7-and-1-9-2/
   * There were still some mentions of dual GPL licensing in the source, but JSON
@@ -69,9 +124,9 @@
 ## 2013-02-04 (1.7.7)
   * Security fix for JSON create_additions default value and
     `JSON::GenericObject`. It should not be possible to create additions unless
-    explicitely requested by setting the create_additions argument to true or
+    explicitly requested by setting the create_additions argument to true or
     using the JSON.load/dump interface. If `JSON::GenericObject` is supposed to
-    be automatically deserialised, this has to be explicitely enabled by
+    be automatically deserialised, this has to be explicitly enabled by
     setting
         JSON::GenericObject.json_creatable = true
     as well.
@@ -217,7 +272,7 @@
 ## 2010-04-23 (1.4.0)
   * Major speed improvements and building with simplified
     directory/file-structure.
-  * Extension should at least be comapatible with MRI, YARV and Rubinius.
+  * Extension should at least be compatible with MRI, YARV and Rubinius.
 
 ## 2010-04-07 (1.2.4)
   * Triger const_missing callback to make Rails' dynamic class loading work.
@@ -235,7 +290,7 @@
     strings in object names/keys.
 
 ## 2009-10-01 (1.2.0)
-  * `fast_generate` now raises an exeception for nan and infinite floats.
+  * `fast_generate` now raises an exception for nan and infinite floats.
   * On Ruby 1.8 json supports parsing of UTF-8, UTF-16BE, UTF-16LE, UTF-32BE,
     and UTF-32LE JSON documents now. Under Ruby 1.9 the M17n conversion
     functions are used to convert from all supported encodings. ASCII-8BIT
